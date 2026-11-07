@@ -26,7 +26,7 @@ router.post("/register", async (req,res) =>{
         let response = await userModel.create(newUser)
 
         res.status(201).json({
-            "msg" : "User created successfully"
+            "msg" : "User created successfully", token
         })
 
     } catch (error) {

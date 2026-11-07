@@ -4,7 +4,8 @@ dotenv.config()
 
 async function tokenize(payload){
     try {
-        
+        let token = jwt.sign(payload, process.env.SECRET_KEY, {expiresIn: "7d"})
+        return token
     } catch (error) {
         console.log(error);
         return error.message

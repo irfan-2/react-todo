@@ -20,3 +20,6 @@ const todoSchema = new mongoose.Schema({
 const todoModel = mongoose.model("todos", todoSchema)
 
 export default todoModel
+
+// 1st parameter ref ke liye rehta 
+// 3rd parameter custom naam ke liye use karte

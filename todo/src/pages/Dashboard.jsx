@@ -3,6 +3,8 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router"
 
+const BASE_URL = "https://0xirfan.com"
+
 function Dashboard(){
     const navigate = useNavigate()
 
@@ -20,7 +22,7 @@ function Dashboard(){
     const getTodos = async () =>{
         try {
             const response = await axios.get(
-                "http://localhost:5000/todo/get", config
+                `${BASE_URL}/todo/get`, config
             )
 
             setTodos(response.data.todos)
@@ -43,7 +45,7 @@ function Dashboard(){
             if(!todo.trim()) return
             try {
                 await axios.post(
-                    "http://localhost:5000/todo/create", {todo}, config
+                    `${BASE_URL}/todo/create`, {todo}, config
                 )
 
                 setTodo("")
@@ -56,7 +58,7 @@ function Dashboard(){
         const deleteTodo = async (id) =>{
             try {
                 await axios.delete(
-                    `http://localhost:5000/todo/delete/${id}`,
+                    `${BASE_URL}/todo/delete/${id}`,
                     config
                 )
                 getTodos()

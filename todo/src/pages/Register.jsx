@@ -2,6 +2,8 @@ import axios from "axios"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router"
 
+const BASE_URL = "https://0xirfan.com"
+
 function Register() {
     const navigate = useNavigate()
 
@@ -21,7 +23,7 @@ function Register() {
         e.preventDefault()
         try{
           const response =  await axios.post(
-                "http://localhost:5000/user/register", form
+                `${BASE_URL}/user/register`, form
             )
             localStorage.setItem("token", response.data.token)
             alert("registered successfully")

@@ -2,6 +2,9 @@ import axios from "axios"
 import { useState } from "react"
 import {Link, useNavigate } from "react-router"
 
+const BASE_URL = "https://0xirfan.com"
+
+
 function Login() {
     const navigate = useNavigate()
 
@@ -21,7 +24,7 @@ function Login() {
         e.preventDefault()
         try {
             const response = await axios.post(
-                "http://localhost:5000/user/login",
+                `${BASE_URL}/user/login`,
                 form
             )
             localStorage.setItem("token", response.data.token)
